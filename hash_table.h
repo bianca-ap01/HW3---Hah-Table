@@ -16,7 +16,7 @@ class hash_table{
         node(key_type k,val_type v,node* n):key(k),val(v),next(n){}
     };
 
-    int rows=100;
+    int rows=17;
     int cols=5;
     int filled=0;
     double maxFF=0.75;
