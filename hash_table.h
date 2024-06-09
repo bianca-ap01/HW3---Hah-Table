@@ -35,11 +35,19 @@ public:
         fix=true;
     }
 
-    int hash(key_type k){
+    template<class type>
+    int hash(type k){
         int id=0;
         auto obj=reinterpret_cast<byte*>(&k);
         for(int i=0;i<sizeof(k);i++)
             id+=(i+1)*to_integer<int>(obj[i]);
+        return id % rows;
+    }
+
+    int hash(string k){
+        int id=0;
+        for(int i=0;i<k.length();i++)
+            id+=(i+1)*k[i];
         return id % rows;
     }
 
