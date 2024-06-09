@@ -105,6 +105,22 @@ public:
         }
     }
 
+    void remove_value(T value){
+        if(head == nullptr) throw('Empty List!');
+        auto temp = head; ListNode* prev = nullptr;
+        while(temp){
+            if(temp->val == value){
+                if(prev == nullptr) head = temp->next;
+                else prev->next = temp->next;
+                delete temp;
+                sz--;
+                return;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
+    }
+
     T pop_front(){
         if(head == nullptr) throw('List is empty!');
         auto temp = head;
